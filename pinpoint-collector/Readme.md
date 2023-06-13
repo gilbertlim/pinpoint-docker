@@ -3,6 +3,17 @@
 
 This Docker image contains the Pinpoint Collector component of the Pinpoint application monitoring system.
 
+## Usage
+
+```sh
+docker run --privileged --rm tonistiigi/binfmt --install all
+docker context ls # check context
+# docker buildx create --name multiarch-builder <context> --use
+docker buildx create --name multiarch-builder default --use
+
+docker buildx build --platform linux/amd64,linux/arm64 -t 9ilbert/pinpoint-collector:2.5.1 . --push
+```
+
 ## Supported Tags
  - 2.5.1
  - 2.5.1-metric
